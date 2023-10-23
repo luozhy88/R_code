@@ -20,8 +20,8 @@ table_q=kbl(data %>% head(), align = "c") %>%
            # alphabet = c("Footnote A; ", "Footnote B; "),
            symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
            ) #%>% kableExtra::as_image()
-# out.name=paste0( dirname(filename), gsub(".csv",".html",basename(filename))  )
-# save_kable(table_q, out.name )
+out.name=paste0( dirname(filename), gsub(".csv",".html",basename(filename))  )
+save_kable(table_q, out.name )
 
 table_q
-# print(glue::glue("You can get the result of t.test in " ,out.name) )
+print(glue::glue("You can get the result of t.test in " ,out.name) )
