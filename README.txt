@@ -25,3 +25,6 @@ save_kable(table_q, out.name )
 
 table_q
 print(glue::glue("You can get the result of t.test in " ,out.name) )
+
+# 获取变量名称并转换为字符串
+variable_name <- deparse(substitute(example_immune))
