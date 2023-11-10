@@ -28,3 +28,11 @@ print(glue::glue("You can get the result of t.test in " ,out.name) )
 
 # 获取变量名称并转换为字符串
 variable_name <- deparse(substitute(example_immune))
+
+# Deseq2 
+// 结果默认返回deseq2中最后一个分组顺序，如Groups是最后一个
+ddsFull <- phyloseq::phyloseq_to_deseq2(phy_tmp, design = ~ Sex +Age + BMI + 吸烟 + 荤素饮食习惯 + 食用酸奶制品的频率 +食用腌制类食物的频率 + Groups ) 
+ddsReduced <- phyloseq::phyloseq_to_deseq2(phy_tmp, design = ~ Sex +Age  + Groups ) 
+
+ddsFull_dds <- DESeq2::DESeq(ddsFull)
+ddsReduced_dds<-DESeq2::DESeq(ddsReduced)
