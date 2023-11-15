@@ -36,3 +36,40 @@ ddsReduced <- phyloseq::phyloseq_to_deseq2(phy_tmp, design = ~ Sex +Age  + Group
 
 ddsFull_dds <- DESeq2::DESeq(ddsFull)
 ddsReduced_dds<-DESeq2::DESeq(ddsReduced)
+
+# Rmarkdown 
+
+换页：\newpage
+引用图片：![](%22../Metaphlan4_TOFU/version3_Metaphlan4_SRP320766_165Subjects_TOFU/output/differential/consensus/differential_consensus_Species.png%22){width="100%"
+height="95%"}
+字体大小及行距：\fontsize{12}{12}\selectfont
+
+---
+Title: Report
+author: "YNYK"
+date: "`r Sys.Date()`"
+bibliography: myref.bib
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+    keep_tex: yes
+    latex_engine: xelatex
+    number_sections: true
+  html_document:
+    toc_depth: 4
+    toc: yes
+    thumbnails: yes
+    number_sections: yes
+    toc_float: yes
+    gallery: yes
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhead[CO]{Innoihealth Biopharmaceutical Co.LTD}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+
