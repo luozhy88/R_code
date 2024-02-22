@@ -72,4 +72,5 @@ editor_options:
     wrap: 72
 ---
 
-
+# 读取excel文件中的所有sheet名称  
+sheets <- readxl::excel_sheets("../../input/20240222 差异基因通路富集cluster.xlsx")  
