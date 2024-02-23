@@ -82,3 +82,9 @@ results <- rbind(results, data.frame(feature=feature, log2fc=log2fc, p_value=tes
 # 用pull拉取变量的数据
  group1 <- lcms %>% filter(class == "ineffective") %>% pull(!!sym(feature))  # Extract data for group1
 
+  # Calculate means for each group at each time point
+  group_means <- long_df %>%
+    group_by(time, !!sym(group_col_name)) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE), .groups = 'drop')
+
+
