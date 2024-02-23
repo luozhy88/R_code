@@ -74,3 +74,11 @@ editor_options:
 
 # 读取excel文件中的所有sheet名称  
 sheets <- readxl::excel_sheets("../../input/20240222 差异基因通路富集cluster.xlsx")  
+
+# 产生一个空表进行保存循环的结果
+results <- data.frame(feature=character(), log2fc=numeric(), p_value=numeric(), p_adjust=numeric())  # Create an empty data frame to store the results
+results <- rbind(results, data.frame(feature=feature, log2fc=log2fc, p_value=test_result$p.value))  # Store the results in the data frame
+
+# 用pull拉取变量的数据
+ group1 <- lcms %>% filter(class == "ineffective") %>% pull(!!sym(feature))  # Extract data for group1
+
