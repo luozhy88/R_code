@@ -87,4 +87,30 @@ results <- rbind(results, data.frame(feature=feature, log2fc=log2fc, p_value=tes
     group_by(time, !!sym(group_col_name)) %>%
     summarize(mean_value = mean(value, na.rm = TRUE), .groups = 'drop')
 
+# xlsx中筛选出具有特定背景颜色的行
+  # 定义Excel工作簿的文件路径
+file_path1 <- "../input/Model_vs_EHGroup.genus.sig.xlsx"
+file_path2 <- "../input/Model_vs_EHGroup.meta.sig.xlsx"
 
+  # 定义一个函数，用于筛选出具有特定背景颜色的行
+filter_color_df=function(file_path, color="FFFFFF00"){
+  # 读取Excel文件到DataFrame
+  Data_df <- read_xlsx(file_path)
+  
+  # 获取单元格的格式信息
+  Data_df_cells <- tidyxl::xlsx_cells(file_path)
+  
+  # 获取格式的详细信息
+  Data_df_formats <- xlsx_formats(file_path)
+  
+  # 筛选出背景颜色为黄色（"FFFFFF00"）的行
+  color_rows = Data_df_cells %>% 
+    filter(local_format_id %in% 
+             which(Data_df_formats$local$fill$patternFill$fgColor$rgb == color )) %>%
+    select(address, row, data_type) %>% pull(row) %>% unique()
+  
+  # 根据筛选出的行号，获取对应的数据
+  sig_df=Data_df[c(color_rows-1),]
+  return(sig_df)
+}
+Control_vs_Model_genus_sig <- filter_color_df(file_path1,color = "FF00B050")
