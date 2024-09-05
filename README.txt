@@ -114,3 +114,7 @@ filter_color_df=function(file_path, color="FFFFFF00"){
   return(sig_df)
 }
 Control_vs_Model_genus_sig <- filter_color_df(file_path1,color = "FF00B050")
+
+
+# 将一个dataframe的两列转为list
+Cid_MetBat_pred_convert_id %>% tibble::deframe() %>% as.list()
