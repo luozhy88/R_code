@@ -116,5 +116,9 @@ filter_color_df=function(file_path, color="FFFFFF00"){
 Control_vs_Model_genus_sig <- filter_color_df(file_path1,color = "FF00B050")
 
 
+# R 脚本终端运行看报错行的方式
+Rscript -e "source('01_get.target.gene.R')"
+
+
 # 将一个dataframe的两列转为list
 Cid_MetBat_pred_convert_id %>% tibble::deframe() %>% as.list()
