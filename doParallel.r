@@ -4,7 +4,7 @@
 library(dplyr)
 library(optparse)
 
-# 描述参数的解析方式
+# 描述参数的解析方式 多线程
 option_list <- list(
   make_option(c("-f", "--first"), type = "character", default = FALSE,
               action = "store", help = "输入正向model，如/database/Models/Ms2query/KEGG/v20240625/positive_mode/exact_matches_test_sets_splits/test_split_1/models ")
