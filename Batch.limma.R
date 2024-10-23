@@ -1,5 +1,5 @@
 
-
+#lima可以不放入group信息做批次矫正
 # 
 # # 使用limma包
 # library(limma)
