@@ -1,5 +1,5 @@
 
-#lima可以不放入group信息做批次矫正
+#lima可以不放入group信息做批次矫正，批次中如果第一批次需要做ref，需要factor按照levels顺序进行
 # 
 # # 使用limma包
 # library(limma)
