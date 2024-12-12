@@ -1,0 +1,11 @@
+
+---
+title: "基因-疾病-表型数据库"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr  # 或者使用 hpstr, architect
+    highlight: github
+---
+
+
+![`r ""`](input/schematic.png){width="100%" height="500px"}
